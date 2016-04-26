@@ -1,0 +1,5 @@
+D:\Files from Old Windows Installs\laptop files\documents\GitHub\Ceasefire\obj\Debug\CFire.csprojResolveAssemblyReference.cache
+D:\Files from Old Windows Installs\laptop files\documents\GitHub\Ceasefire\bin\Debug\CFire.dll
+D:\Files from Old Windows Installs\laptop files\documents\GitHub\Ceasefire\bin\Debug\CFire.pdb
+D:\Files from Old Windows Installs\laptop files\documents\GitHub\Ceasefire\obj\Debug\CFire.dll
+D:\Files from Old Windows Installs\laptop files\documents\GitHub\Ceasefire\obj\Debug\CFire.pdb

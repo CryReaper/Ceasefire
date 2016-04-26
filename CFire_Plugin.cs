@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Reflection;
 using Rocket.Core;
-using Rocket.Core.Serialisation;
+using Rocket.Core.Serialization;
 using Rocket.Unturned;
 using Rocket.Unturned.Chat;
 using Rocket.Unturned.Player;
@@ -46,9 +46,9 @@ namespace CFire_Plug
 			Rocket.Unturned.Events.UnturnedPlayerEvents.OnPlayerUpdatePosition += UnturnedPlayerEvents_OnPlayerUpdatePosition;
 			Rocket.Unturned.Events.UnturnedPlayerEvents.OnPlayerUpdateExperience += UnturnedPlayerEvents_OnPlayerUpdateExperience;
 			string currentPath = System.IO.Directory.GetCurrentDirectory();
-			System.IO.Directory.CreateDirectory(currentPath + "\\Plugins\\CFire");
-			System.IO.Directory.CreateDirectory(currentPath + "\\Plugins\\CFire\\Players");
-			System.IO.Directory.CreateDirectory(currentPath + "\\Plugins\\CFire\\Players\\Characters");
+            System.IO.Directory.CreateDirectory(currentPath + Path.DirectorySeparatorChar + "Plugins" + Path.DirectorySeparatorChar + "CFire");
+            System.IO.Directory.CreateDirectory(currentPath + Path.DirectorySeparatorChar + "Plugins" + Path.DirectorySeparatorChar + "CFire" + Path.DirectorySeparatorChar + "Players");
+            System.IO.Directory.CreateDirectory(currentPath + Path.DirectorySeparatorChar + "Plugins" + Path.DirectorySeparatorChar + "CFire" + Path.DirectorySeparatorChar + "Players" + Path.DirectorySeparatorChar + "Characters");
         }
         protected override void Unload()
 		{
@@ -99,8 +99,8 @@ namespace CFire_Plug
 			string playerSID = player.CSteamID + ".txt";
 			string playerName = player.CharacterName + ".txt";
 			string currentPath = System.IO.Directory.GetCurrentDirectory();
-			string filePathSID = currentPath + "\\Plugins\\CFire\\Players\\" + playerSID;
-			string filePathName = currentPath + "\\Plugins\\CFire\\Players\\Characters\\" + playerName;
+            string filePathSID = currentPath + Path.DirectorySeparatorChar + "Plugins" + Path.DirectorySeparatorChar + "CFire" + Path.DirectorySeparatorChar + "Players" + Path.DirectorySeparatorChar + playerSID;
+            string filePathName = currentPath + Path.DirectorySeparatorChar + "Plugins" + Path.DirectorySeparatorChar + "CFire" + Path.DirectorySeparatorChar + "Players" + Path.DirectorySeparatorChar + "Characters" + Path.DirectorySeparatorChar + playerName;
 
 			if(!System.IO.File.Exists(filePathSID))
 			{
@@ -148,14 +148,14 @@ namespace CFire_Plug
 			string player2File = killer.CSteamID + ".txt";
 			string player3File = player.CharacterName + ".txt";
 			string player4File = killer.CharacterName + ".txt";
-			string fileName1 = currentPath + "\\Plugins\\CFire\\Players\\" + player1File;
-			string fileName2 = currentPath + "\\Plugins\\CFire\\Players\\" + player2File;
-			string fileName3 = currentPath + "\\Plugins\\CFire\\Players\\Characters\\" + player3File;
-			string fileName4 = currentPath + "\\Plugins\\CFire\\Players\\Characters\\" + player4File;
+            string fileName1 = currentPath + +Path.DirectorySeparatorChar + "Plugins" + Path.DirectorySeparatorChar + "CFire" + Path.DirectorySeparatorChar + "Players" + Path.DirectorySeparatorChar + player1File;
+            string fileName2 = currentPath + Path.DirectorySeparatorChar + "Plugins" + Path.DirectorySeparatorChar + "CFire" + Path.DirectorySeparatorChar + "Players" + Path.DirectorySeparatorChar + player2File;
+            string fileName3 = currentPath + Path.DirectorySeparatorChar + "Plugins" + Path.DirectorySeparatorChar + "CFire" + Path.DirectorySeparatorChar + "Players" + Path.DirectorySeparatorChar + "Characters" + Path.DirectorySeparatorChar + player3File;
+            string fileName4 = currentPath + Path.DirectorySeparatorChar + "Plugins" + Path.DirectorySeparatorChar + "CFire" + Path.DirectorySeparatorChar + "Players" + Path.DirectorySeparatorChar + "Characters" + Path.DirectorySeparatorChar + player4File;
 			string line;
 
 			System.IO.StreamReader file =
-				new System.IO.StreamReader (currentPath + "\\Plugins\\CFire\\Players\\" + playerSID);
+                new System.IO.StreamReader(currentPath + Path.DirectorySeparatorChar + "Plugins" + Path.DirectorySeparatorChar + "CFire" + Path.DirectorySeparatorChar + "Players" + Path.DirectorySeparatorChar + playerSID);
 			while ((line = file.ReadLine ()) != null) 
 			{
 				if (line == murdererSID) 
