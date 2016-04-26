@@ -63,6 +63,12 @@ namespace CFire_Command
         Dictionary<Steamworks.CSteamID, DateTime> coolDown = new Dictionary<Steamworks.CSteamID, DateTime>();
         #endregion
 
+        public AllowedCaller AllowedCaller
+        {
+            get { return AllowedCaller.Both; }
+        }
+
+
 		void Rocket_Unturned_Events_UnturnedPlayerEvents_OnPlayerDead (UnturnedPlayer player, Vector3 position)
 		{
 			
@@ -89,7 +95,7 @@ namespace CFire_Command
 			{
 				string playerName = player.CharacterName + ".txt";
 				string currentPath = System.IO.Directory.GetCurrentDirectory();
-				string filePathName = currentPath + "\\Plugins\\CFire\\Players\\Characters\\" + playerName;
+                string filePathName = currentPath + Path.DirectorySeparatorChar + "Plugins" + Path.DirectorySeparatorChar + "CFire" + Path.DirectorySeparatorChar + "Players" + Path.DirectorySeparatorChar + "Characters"+Path.DirectorySeparatorChar + playerName;
 
 				List<string> cfList = File.ReadAllLines (filePathName).ToList ();
 				string cfActive = string.Join(",", cfList.ToArray());
@@ -149,27 +155,27 @@ namespace CFire_Command
 					string currentPath = System.IO.Directory.GetCurrentDirectory();
 
 					//write SID files
-					using (System.IO.StreamWriter file = 
-						new System.IO.StreamWriter(currentPath + "\\Plugins\\CFire\\Players\\" + player2filename, true))
+					using (System.IO.StreamWriter file =
+                        new System.IO.StreamWriter(currentPath + Path.DirectorySeparatorChar + "Plugins" + Path.DirectorySeparatorChar + "CFire" + Path.DirectorySeparatorChar + "Players" + Path.DirectorySeparatorChar  + player2filename, true))
 					{
 						file.WriteLine(player1SID);
 						file.Close ();
 					}
 					using (System.IO.StreamWriter file = 
-						new System.IO.StreamWriter(currentPath + "\\Plugins\\CFire\\Players\\" + player1filename, true))
+						new System.IO.StreamWriter(currentPath +Path.DirectorySeparatorChar+"Plugins"+Path.DirectorySeparatorChar+"CFire"+Path.DirectorySeparatorChar+"Players"+Path.DirectorySeparatorChar+ player1filename, true))
 					{
 						file.WriteLine(player2SID);
 						file.Close ();
 					}
 					//write character name files
 					using (System.IO.StreamWriter file = 
-						new System.IO.StreamWriter(currentPath + "\\Plugins\\CFire\\Players\\Characters\\" + player2filename2, true))
+						new System.IO.StreamWriter(currentPath +Path.DirectorySeparatorChar+"Plugins"+Path.DirectorySeparatorChar+"CFire"+Path.DirectorySeparatorChar+"Players"+Path.DirectorySeparatorChar+"Characters"+Path.DirectorySeparatorChar+ player2filename2, true))
 					{
 						file.WriteLine(player1Name);
 						file.Close ();
 					}
-					using (System.IO.StreamWriter file = 
-						new System.IO.StreamWriter(currentPath + "\\Plugins\\CFire\\Players\\Characters\\" + player1filename2, true))
+					using (System.IO.StreamWriter file =
+                        new System.IO.StreamWriter(currentPath + Path.DirectorySeparatorChar + "Plugins" + Path.DirectorySeparatorChar + "CFire" + Path.DirectorySeparatorChar + "Players" + Path.DirectorySeparatorChar + "Characters"+Path.DirectorySeparatorChar+ player1filename2, true))
 					{
 						file.WriteLine(player2Name);
 						file.Close ();
@@ -220,14 +226,14 @@ namespace CFire_Command
 					string player5Name = player.CharacterName + "";
 					string player5SIDFile = player.CSteamID + ".txt";
 					string player5File = player.CharacterName + ".txt";
-					string fileName5SID = currentPathz + "\\Plugins\\CFire\\Players\\" + player5SIDFile;
-					string fileName5 = currentPathz + "\\Plugins\\CFire\\Players\\Characters\\" + player5File;
+                    string fileName5SID = currentPathz + Path.DirectorySeparatorChar + "Plugins" + Path.DirectorySeparatorChar + "CFire" + Path.DirectorySeparatorChar + "Players" + Path.DirectorySeparatorChar + player5SIDFile;
+                    string fileName5 = currentPathz + Path.DirectorySeparatorChar + "Plugins" + Path.DirectorySeparatorChar + "CFire" + Path.DirectorySeparatorChar + "Players" + Path.DirectorySeparatorChar + "Characters" + Path.DirectorySeparatorChar + player5File;
 					string player6SID = id + "";
 					string player6Name = command[0].ToString() + "";
 					string player6SIDFile = id + ".txt";
 					string player6File = command[0].ToString() + ".txt";
-					string fileName6SID = currentPathz + "\\Plugins\\CFire\\Players\\" + player6SIDFile;
-					string fileName6 = currentPathz + "\\Plugins\\CFire\\Players\\Characters\\" + player6File;
+                    string fileName6SID = currentPathz + Path.DirectorySeparatorChar + "Plugins" + Path.DirectorySeparatorChar + "CFire" + Path.DirectorySeparatorChar + "Players" + Path.DirectorySeparatorChar + player6SIDFile;
+                    string fileName6 = currentPathz + Path.DirectorySeparatorChar + "Plugins" + Path.DirectorySeparatorChar + "CFire" + Path.DirectorySeparatorChar + "Players" + Path.DirectorySeparatorChar + "Characters" + Path.DirectorySeparatorChar + player6File;
 					string linez;
 					System.IO.StreamReader filez =
 						new System.IO.StreamReader (fileName5);
@@ -306,10 +312,10 @@ namespace CFire_Command
 					string player2File = tgt.CSteamID + ".txt";
 					string player3File = player.CharacterName + ".txt";
 					string player4File = tgt.CharacterName + ".txt";
-					string fileName1 = currentPath + "\\Plugins\\CFire\\Players\\" + player1File;
-					string fileName2 = currentPath + "\\Plugins\\CFire\\Players\\" + player2File;
-					string fileName3 = currentPath + "\\Plugins\\CFire\\Players\\Characters\\" + player3File;
-					string fileName4 = currentPath + "\\Plugins\\CFire\\Players\\Characters\\" + player4File;
+                    string fileName1 = currentPath + Path.DirectorySeparatorChar + "Plugins" + Path.DirectorySeparatorChar + "CFire" + Path.DirectorySeparatorChar + "Players" + Path.DirectorySeparatorChar + player1File;
+                    string fileName2 = currentPath + Path.DirectorySeparatorChar + "Plugins" + Path.DirectorySeparatorChar + "CFire" + Path.DirectorySeparatorChar + "Players" + Path.DirectorySeparatorChar + player2File;
+                    string fileName3 = currentPath + Path.DirectorySeparatorChar + "Plugins" + Path.DirectorySeparatorChar + "CFire" + Path.DirectorySeparatorChar + "Players" + Path.DirectorySeparatorChar + "Characters" + Path.DirectorySeparatorChar + player3File;
+                    string fileName4 = currentPath + Path.DirectorySeparatorChar + "Plugins" + Path.DirectorySeparatorChar + "CFire" + Path.DirectorySeparatorChar + "Players" + Path.DirectorySeparatorChar + "Characters" + Path.DirectorySeparatorChar + player4File;
 					string line;
 					System.IO.StreamReader file =
 						new System.IO.StreamReader (fileName1);
